@@ -17,5 +17,23 @@
     </bean>
     <!--配置静态资源文件的释放-->
     <mvc:resources mapping="/r/**" location="/r/"/>
+    <mvc:resources mapping="/upload/**" location="/upload/"/>
+    <!--配置文件上传支持-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+       <property name="maxUploadSize" value="-1"/>
+        <!--最大临时内存，当上传的文件超过此大小时，服务器会自动持久化到本地-->
+        <property name="maxInMemorySize" value="-1"/>
+    </bean>
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--配置拦截器要拦截哪些请求-->
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/user/**"/>
+            <!--告诉spring拦截器的类是哪个-->
+            <bean class="com.neuedu.interceptor.LoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>
