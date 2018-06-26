@@ -8,6 +8,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginInterceptor implements HandlerInterceptor{
     /**
@@ -24,11 +26,6 @@ public class LoginInterceptor implements HandlerInterceptor{
         //将登陆信息存到session
         HttpSession httpSession = httpServletRequest.getSession();
         User user = (User) httpSession.getAttribute("user");
-        //将登陆信息存到cookie
-        /*Cookie cookie = new Cookie("username",user.getUsername());
-        cookie.setMaxAge(60*60*24*7);
-        httpServletResponse.addCookie(cookie);
-        System.out.println(1);*/
         if(user == null){
             //httpServletRequest.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(httpServletRequest,httpServletResponse);
             httpServletResponse.sendRedirect("/empdemo/user/loginView");
