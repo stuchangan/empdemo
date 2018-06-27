@@ -35,7 +35,8 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="button" class="btn btn-primary login">登录</button>
+                    <button type="button" class="btn btn-primary login" >登录</button>
+                    <button type="button" class="btn btn-primary regist" >注册</button>
                 </div>
             </div>
         </form>
@@ -52,7 +53,8 @@
                if(username == "" || password == ""){
                    alert("用户名或密码不能为空");
                }else{
-                   //使用ajax请求将用户名密码发送到后台校验
+                   //$("#loginForm").submit();
+                    //使用ajax请求将用户名密码发送到后台校验
                    $.ajax({
                        type:"post",
                        url:"${pageContext.request.contextPath}/user/login",
@@ -70,6 +72,10 @@
                    });
                }
            }) ;
+           $(".regist").click(function(){
+               var path = "${pageContext.request.contextPath}/user/registView";
+               location.href = path;
+           });
         });
     </script>
 

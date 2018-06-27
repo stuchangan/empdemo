@@ -72,7 +72,7 @@ public class UserController{
     }
 
     @RequestMapping(value = {"/login"})
-    public void login(String username, String password, HttpServletResponse resp, HttpSession httpSession) throws IOException {
+    public void login(String username, String password, HttpServletResponse resp, HttpSession httpSession,HttpServletRequest req) throws IOException {
         User user = userService.getUserByUsername(username);
         PrintWriter out = resp.getWriter();
         if(user != null && user.getPassword().equals(password)){
@@ -80,12 +80,18 @@ public class UserController{
             httpSession.setAttribute("user",user);
             //将登陆信息存到cookie
             Cookie cookie = new Cookie("username",user.getUsername());
+            //System.out.println(cookie);
             cookie.setMaxAge(60*60*24*7);
+            cookie.setPath("/");
             resp.addCookie(cookie);
+
+            //return "redirect:/emp/emplist";
             out.print(true);
         }else{
-            out.print(false);
+           out.print(false);
+            //return "redirect:login";
         }
+
 
     }
 }
