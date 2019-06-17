@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : MYSQL5.7.17
+Source Server         : localhost
 Source Server Version : 50717
 Source Host           : localhost:3306
 Source Database       : empdemo_ssm
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-05-22 14:35:10
+Date: 2019-06-13 14:49:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,14 +49,6 @@ CREATE TABLE `e_emp` (
 -- ----------------------------
 -- Records of e_emp
 -- ----------------------------
-INSERT INTO `e_emp` VALUES ('1', '张三', '13333333333', '男', '10000', '1');
-INSERT INTO `e_emp` VALUES ('2', '李四', '15555555555', '男', '15000', '2');
-INSERT INTO `e_emp` VALUES ('3', '吴老二', '16666666666', '男', '10000', '1');
-INSERT INTO `e_emp` VALUES ('4', '张无忌', '13312345678', '男', '5000', '2');
-INSERT INTO `e_emp` VALUES ('5', '周芷若', '15512345678', '女', '10000', '1');
-INSERT INTO `e_emp` VALUES ('6', '赵敏', '17777777777', '女', '10000', '1');
-INSERT INTO `e_emp` VALUES ('7', '乔峰', '15568394567', '男', '500', '1');
-INSERT INTO `e_emp` VALUES ('8', '虚竹', '15568397890', '男', '1000', '2');
 INSERT INTO `e_emp` VALUES ('9', '段誉', '13368345678', '男', '1000', '2');
 INSERT INTO `e_emp` VALUES ('10', '测试数据1', '15568345678', '男', '1000', '2');
 INSERT INTO `e_emp` VALUES ('11', '测试数据2', '15568345678', '男', '1000', '2');
@@ -65,8 +57,6 @@ INSERT INTO `e_emp` VALUES ('13', '测试数据4', '15568345678', '男', '1000',
 INSERT INTO `e_emp` VALUES ('14', '测试数据5', '15568345678', '男', '1000', '2');
 INSERT INTO `e_emp` VALUES ('15', '测试数据6', '15568345678', '男', '1000', '2');
 INSERT INTO `e_emp` VALUES ('16', '测试数据7', '15568345678', '男', '1000', '2');
-INSERT INTO `e_emp` VALUES ('17', '测试数据8', '15568345678', '男', '1000', '2');
-INSERT INTO `e_emp` VALUES ('18', '测试数据9', '15568345678', '男', '1000', '2');
 INSERT INTO `e_emp` VALUES ('19', '测试数据10', '15568345678', '男', '1000', '2');
 INSERT INTO `e_emp` VALUES ('20', '测试数据11', '15568345678', '男', '1000', '2');
 INSERT INTO `e_emp` VALUES ('21', '测试数据12', '15568345678', '男', '1000', '2');
@@ -118,3 +108,20 @@ INSERT INTO `e_emp` VALUES ('66', '测试数据57', '15568345678', '男', '1000'
 INSERT INTO `e_emp` VALUES ('67', '测试数据58', '15568345678', '男', '1000', '2');
 INSERT INTO `e_emp` VALUES ('68', '测试数据59', '15568345678', '男', '1000', '2');
 INSERT INTO `e_emp` VALUES ('69', '测试数据60', '15568345678', '男', '1000', '2');
+
+-- ----------------------------
+-- Table structure for e_user
+-- ----------------------------
+DROP TABLE IF EXISTS `e_user`;
+CREATE TABLE `e_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `headimg` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_user
+-- ----------------------------
+INSERT INTO `e_user` VALUES ('5', 'admin', '1234', '\\upload\\115f9992-cd01-4802-ac3b-8da47a40b691.jpg');
